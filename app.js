@@ -199,15 +199,40 @@ const toppings = [
 //   }
 
   function drawCart() {
+    
     console.log("drawing cart");
     let template = "";
     iceCream.forEach((flavor) => {
       if (flavor.quantity > 0) {
         template += `<div class="d-flex border rounded-1" class="justify-content-around">
-      <p class="fs-3 px-4 mx-4">Vanilla</p>
+      <p class="fs-3 px-4 mx-4">${flavor.name}</p>
       <p class="fs-3 px-4 mx-4">x${flavor.quantity}</p>
       <p class="fs-3 px-4 mx-4">$${flavor.price}</p>
       <p class="fs-3 px-4 mx-4">$${flavor.quantity * flavor.price}</p>
+    </div>`;
+      }
+      console.log(template);
+    });
+    // document.getElementById("cart").innerHTML = template;
+    toppings.forEach((top) => {
+      if (top.quantity > 0) {
+        template += `<div class="d-flex border rounded-1" class="justify-content-around">
+      <p class="fs-3 px-4 mx-4">${top.name}</p>
+      <p class="fs-3 px-4 mx-4">x${top.quantity}</p>
+      <p class="fs-3 px-4 mx-4">$${top.price}</p>
+      <p class="fs-3 px-4 mx-4">$${top.quantity * top.price}</p>
+    </div>`;
+      }
+      console.log(template);
+    });
+    // document.getElementById("cart").innerHTML = template;
+    cones.forEach((con) => {
+      if (con.quantity > 0) {
+        template += `<div class="d-flex border rounded-1" class="justify-content-around">
+      <p class="fs-3 px-4 mx-4">${con.name}</p>
+      <p class="fs-3 px-4 mx-4">x${con.quantity}</p>
+      <p class="fs-3 px-4 mx-4">$${con.price}</p>
+      <p class="fs-3 px-4 mx-4">$${con.quantity * con.price}</p>
     </div>`;
       }
       console.log(template);
@@ -249,6 +274,69 @@ function updateItem(itemType, itemName, action) {
           drawCart();
           return;
         }
+        
+      }
+      
     }
-  }
+
+    // start toppings
+     if (itemType == "toppings") {
+    // start case for ice cream
+    switch (action) {
+      case "add":
+        console.log(`adding a ${itemName}`);
+        let Strawberryup = toppings.find(
+          (Strawberry) => Strawberry.name == itemName
+        );
+        Strawberryup.quantity++;
+        console.log(Strawberryup.quantity);
+        drawCart();
+        return;
+      case "remove":
+        if (itemType[1].quantity == 0) {
+          console.log(`No ${itemType} to remove`);
+          return;
+        } else {
+          console.log(`removing ${itemType}`);
+          let Strawberrydown = toppings.find(
+            (Strawberry) => Strawberry.name == itemName
+          );
+          Strawberrydown.quantity--;
+          drawCart();
+          return;
+        }
+        
+      }
+      
+    }
+    // start cones
+    if (itemType == "cones") {
+      // start case for ice cream
+      switch (action) {
+        case "add":
+          console.log(`adding a ${itemName}`);
+          let Strawberryup = cones.find(
+            (Strawberry) => Strawberry.name == itemName
+          );
+          Strawberryup.quantity++;
+          console.log(Strawberryup.quantity);
+          drawCart();
+          return;
+        case "remove":
+          if (itemType[1].quantity == 0) {
+            console.log(`No ${itemType} to remove`);
+            return;
+          } else {
+            console.log(`removing ${itemType}`);
+            let Strawberrydown = cones.find(
+              (Strawberry) => Strawberry.name == itemName
+            );
+            Strawberrydown.quantity--;
+            drawCart();
+            return;
+          }
+          
+        }
+        
+      }
 }
