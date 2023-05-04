@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="debug bg-dark">
+<body class=" bg-dark">
   <style>
     body.debug .container,
     body.debug .container-fluid {
@@ -37,10 +37,11 @@
       outline-offset: -3px;
     }
   </style>
+  
   <script src="app.js"></script>
 
 
-  <header class="cointainer-fluid">
+  <header class="cointainer-fluid p-3">
     <section class="row text-white">
       <div class="col-12">
         <h1>Q's 1 stop Ice Cream Shop</h1>
@@ -48,74 +49,104 @@
     </section>
   </header>
 
-  <main class="cointainer-fluid bg-dark">
-    <section class="row text-white p-2">
-      <!-- cart section -->
+  <main class="cointainer-fluid bg-dark p-3">
+    <section class="row text-white">
+      <!-- cart section / left side of screen-->
       <!-- cart header -->
-      <div class="col-5">
+      <div class="col-6 p-4">
         <div class="row">
           <div class="d-flex justify-content-between border rounded-top-2">
-            <p class="fs-3 p-3">Name</p>
-            <p class="fs-3 p-3">Qty </p>
-            <p class="fs-3 p-3">Cost </p>
-            <p class="fs-3 p-3">total </p>
+            <p class="fs-3 px-5">Name</p>
+            <p class="fs-3 px-5">Qty </p>
+            <p class="fs-3 px-5">Cost </p>
+            <p class="fs-3 px-5">total </p>
           </div>
         </div>
         <div class="d-flex flex-column justify-content-between">
-          <div class="pt-2" id="cart">
+          <div class="pt-1 rounded" id="cart">
             <!-- cart item template -->
-            <div class="d-flex" class="justify-content-around">
-              <p class="mx-3 fs-3">strawberry</p>
-              <p class="mx-3 fs-3 px-2">x2</p>
-              <p class="mx-3 fs-3 px-2">$5</p>
-              <p class="mx-3 fs-3 px-2">$10</p>
-            </div>
+            <!-- <div class="d-flex border rounded-1" class="justify-content-around">
+              <p class="fs-3 px-4 mx-4">Strawberry</p>
+              <p class="fs-3 px-4 mx-4">x2</p>
+              <p class="fs-3 px-4 mx-4">$5</p>
+              <p class="fs-3 px-4 mx-4">$10</p>
+            </div> -->
+            <!-- cart item template -->
           </div>
         </div>
-        <div class="d-flex justify-content-end flex-column align-items-end">
-          <P id="total" class="p-2 fs-3">Total:</P>
-          <button class="btn rounded-pill text-bg-light m-1">purchase</button>
-        </div>
+        <!-- <div class="card bg-transparent p-3 border-white"> -->
+          <div class="d-flex text-end p-1 border rounded-1 flex-column-reverse">
+            <button class="btn btn-light btn-purchase">purchase</button>
+            <p class="fs-3">Total: <span id="total-price"> $0</span></p>
+          </div>
+        <!-- </div> -->
+
       </div><!--  this ends my col5  -->
 
-      <div class="col-7">
+      <div class="col-6 p-4">
         <!-- toppings section -->
-        <div class="row">
-          <p class="fs-5 p-3">Choose your toppings</p>
+        <div class="m-0">
+          <p class="fs-2  text-center">Choose your toppings</p>
         </div>
         <!-- first row of cones -->
         <div class="row">
-          <p class="fs-5 p-3">Cones</p>
-        </div>
-        <div class="d-flex justify-content-center">
-          <img src="https://m.media-amazon.com/images/I/71VNjBMakfL._SL1500_.jpg" alt="waffle cone" class="">
-        
-          <img src="http://images.wbmason.com/350/L_JOY66050.jpg" alt="waffle cone" class="">
+          <p class="fs-5 p-1 ms-5">Cones</p>
         </div>
 
+        <!-- cone row -->
+        <div class="d-flex justify-content-around">
+            <div class="card">
+            <img src="https://m.media-amazon.com/images/I/71VNjBMakfL._SL1500_.jpg" alt="waffle cone" class="my-img">
+            <button onclick="updateItem('cones','Waffle Cone', 'add')">Add</button>
+            <button onclick="updateItem('cones','Waffle Cone', 'remove')">Remove</button>
+          </div>
+            <div class="card">
+              <img src="http://images.wbmason.com/350/L_JOY66050.jpg" alt="waffle cone" class="my-img">
+              <button onclick="updateItem('cones','Waffle Bowl', 'add')">Add</button>
+              <button onclick="updateItem('cones','Waffle Bowl', 'remove')">Remove</button>
+            </div>
+        </div>
+<!-- end cone row -->
         
         <!-- first row of flavors -->
         <div class="row">
-          <p class="fs-5 p-3">Flavors</p>
+          <p class="fs-5 p-1 ms-5">Flavors</p>
         </div>
-        <div class="d-flex justify-content-center">
+        <!-- flavor row -->
+        <div class="d-flex justify-content-around">
+            <div class="card">
+            <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/ultimate-vanilla-ice-cream-1628511695.jpg" alt="waffle cone" class="my-img">
+            <button onclick="updateItem('iceCream','Vanilla', 'add')">Add</button>
+            <button onclick="updateItem('iceCream','Vanilla', 'remove')">Remove</button>
+          </div>
           <div class="card">
-          <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/ultimate-vanilla-ice-cream-1628511695.jpg" alt="waffle cone" class="">
-          <button class="btn rounded-pill btn-dark text-bg-light m-1">purchase</button>
+
+            <img src="https://www.realfoodwithjessica.com/wp-content/uploads/2017/07/paleostrawberryicecream2.jpg" alt="waffle cone" class="my-img">
+            <button onclick="updateItem('iceCream','Strawberry', 'add')">Add</button>
+            <button onclick="updateItem('iceCream', 'Strawberry', 'remove')">Remove</button>
+          </div>
         </div>
-        </div>
-        
-          <img src="https://www.realfoodwithjessica.com/wp-content/uploads/2017/07/paleostrawberryicecream2.jpg" alt="waffle cone" class="">
-        </div>
+        <!-- end flavor row -->
+
         <!-- first row of toppings -->
         <div class="row">
-          <p class="fs-5 p-3">Toppings</p>
+          <p class="fs-5 p-1 ms-5">Toppings</p>
         </div>
-        <div class="d-flex justify-content-center">
-          <img src="https://www.eatthis.com/wp-content/uploads/sites/4/2020/05/chocolate-chips.jpg?quality=82&strip=1&resize=640%2C360" alt="waffle cone" class="">
-        
-          <img src="https://upload.wikimedia.org/wikipedia/commons/f/f6/Sprinkles2.jpg" alt="waffle cone" class="">
-        </div>
+        <div class="d-flex justify-content-around">
+          <div class="card">
+
+            <img src="https://www.eatthis.com/wp-content/uploads/sites/4/2020/05/chocolate-chips.jpg?quality=82&strip=1&resize=640%2C360" alt="waffle cone" class="my-img">
+            <button onclick="updateItem('toppings','Chocolate Chips', 'add')">Add</button>
+            <button onclick="updateItem('toppings','Chocolate Chips', 'remove')">Remove</button>
+          </div>
+
+          <div class="card">
+
+            <img src="https://upload.wikimedia.org/wikipedia/commons/f/f6/Sprinkles2.jpg" alt="waffle cone" class="my-img">
+            <button onclick="updateItem('toppings','Sprinkle', 'add')">Add</button>
+            <button onclick="updateItem('toppings','Sprinkle', 'remove')">Remove</button>
+          </div>
+          </div>
       </div>
     </section>
   </main>
