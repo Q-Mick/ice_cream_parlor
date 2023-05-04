@@ -1,33 +1,231 @@
-const iceCream = [{
-  name: 'Cookie Dough',
-  image: 'https://celebratingsweets.com/wp-content/uploads/2014/04/Cookie-Dough-Ice-Cream-1-5.jpg',
-  price: 1
-}, {
-  name: 'Vanilla',
-  image: 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/ultimate-vanilla-ice-cream-1628511695.jpg',
-  price: 1
-}, {
-  name: 'Strawberry',
-  image: 'https://www.realfoodwithjessica.com/wp-content/uploads/2017/07/paleostrawberryicecream2.jpg',
-  price: 2
-}]
+// const Items = [{
+//   type: iceCream,    
+//   flavors: ["vanilla", "strawberry"],
+//   price: 3.99
+//   },{
+//     cones = [
+//       {
+//         name: "Waffle Cone",
+//         price: "1",
+//         quantity: 0,
+//       },
+//       {
+//         name: "Waffle Bowl",
+//         price: "2",
+//         quantity: 0,
+//       },
+//   }
 
-const toppings = [{
-  name: 'Sprinkles',
-  image: 'https://upload.wikimedia.org/wikipedia/commons/f/f6/Sprinkles2.jpg',
-  price: 1
-}, {
-  name: 'Chocolate Chips',
-  image: 'https://www.eatthis.com/wp-content/uploads/sites/4/2020/05/chocolate-chips.jpg?quality=82&strip=1&resize=640%2C360',
-  price: 2
-}]
+// ];
 
-const containers = [{
-  name: 'Waffle Cone',
-  image: 'https://m.media-amazon.com/images/I/71VNjBMakfL._SL1500_.jpg',
-  price: 2
-}, {
-  name: 'Waffle Bowl',
-  image: 'http://images.wbmason.com/350/L_JOY66050.jpg',
-  price: 4
-}]
+const iceCream = [
+  {
+    name: "Vanilla",
+    price: 1,
+    quantity: 0,
+  },
+  {
+    name: "Strawberry",
+    price: 2,
+    quantity: 0,
+  },
+];
+
+const cones = [
+  {
+    name: "Waffle Cone",
+    price: "1",
+    quantity: 0,
+  },
+  {
+    name: "Waffle Bowl",
+    price: "2",
+    quantity: 0,
+  },
+];
+
+const toppings = [
+  {
+    name: "Sprinkles",
+    price: "1",
+    quantity: 0,
+  },
+  {
+    name: "Chocolate Chips",
+    price: "2",
+    quantity: 0,
+  },
+];
+
+// let currentCartTemplate = "";
+// let vanillaCount = 0;
+// let strawberryCount = 0;
+// let waffleConeCount = 0;
+// let waffleBowlCount = 0;
+// let sprinkleCount = 0;
+// let chocolateCount = 0;
+// these variables keep track of the current amount of each item in the cart
+
+function addRemoveVanilla(addremove) {
+  switch (addremove) {
+    case "add":
+      console.log("adding a vanilla");
+      vanillaCount++;
+      // drawCart()
+      return;
+    case "remove":
+      if (vanillaCount == 0) {
+        console.log("no vanilla to remove");
+        return;
+      } else {
+        console.log("removing vanilla");
+        vanillaCount--;
+        // drawCart()
+      }
+      return;
+  }
+}
+
+// SECTION my current working add and remove function
+function addRemoveStrawberry(addremove, item) {
+  console.log(item);
+  if (item == "iceCream") {
+    // start case for ice cream
+    switch (addremove) {
+      case "add":
+        console.log("adding a strawberry");
+        let Strawberryup = iceCream.find(
+          (Strawberry) => Strawberry.name == "Strawberry"
+          );
+          Strawberryup.quantity++;
+          console.log(Strawberryup.quantity);
+          drawCart()
+          return;
+          case "remove":
+            if (item[1].quantity == 0) {
+              console.log("no strawberry to remove");
+              return;
+            } else {
+              console.log("removing strawberry");
+              let Strawberrydown = iceCream.find(
+                (Strawberry) => Strawberry.name == "Strawberry"
+                );
+                Strawberrydown.quantity--
+                drawCart()
+              }
+              return;
+            }
+            // end case for ice cream
+          } if (item == "cones") {
+            // start case for cones
+            
+          } else {
+            
+          } {
+
+          }
+}
+
+function addRemoveWaffleCone(addremove) {
+  switch (addremove) {
+    case "add":
+      console.log("adding a waffleCone");
+      waffleConeCount++;
+      // drawCart()
+      return;
+    case "remove":
+      if (waffleConeCount == 0) {
+        console.log("no waffleCone to remove");
+        return;
+      } else {
+        console.log("removing waffle cone");
+        waffleConeCount--;
+        // drawCart()
+      }
+      return;
+  }
+}
+
+function addRemoveWaffleBowl(addremove) {
+  switch (addremove) {
+    case "add":
+      console.log("adding a waffleBowl");
+      waffleBowlCount++;
+      // drawCart()
+      return;
+    case "remove":
+      if (waffleBowlCount == 0) {
+        console.log("no waffleBowl to remove");
+        return;
+      } else {
+        console.log("removing waffle bowl");
+        waffleBowlCount--;
+        // drawCart()
+      }
+      return;
+  }
+}
+
+function addRemoveChocolate(addremove) {
+  switch (addremove) {
+    case "add":
+      console.log("adding a chocolate");
+      chocolateCount++;
+      // drawCart()
+      return;
+    case "remove":
+      if (chocolateCount == 0) {
+        console.log("no chocolate to remove");
+        return;
+      } else {
+        console.log("removing a chocolate");
+        chocolateCount--;
+        // drawCart()
+      }
+      return;
+  }
+}
+
+function addRemoveSprinkle(addremove) {
+  switch (addremove) {
+    case "add":
+      console.log("adding a sprinkle");
+      sprinkleCount++;
+      // drawCart()
+      return;
+    case "remove":
+      if (sprinkleCount == 0) {
+        console.log("no sprinkle to remove");
+        return;
+      } else {
+        console.log("removing a sprinkle");
+        sprinkleCount--;
+        // drawCart()
+      }
+      return;
+  }
+}
+
+function drawCart() {
+ 
+  console.log("drawing cart");
+  let template = "";
+  iceCream.forEach((flavor) => {
+    if (flavor.quantity > 0) {
+      template += `<div class="d-flex border rounded-1" class="justify-content-around">
+      <p class="fs-3 px-4 mx-4">Vanilla</p>
+      <p class="fs-3 px-4 mx-4">x${flavor.quantity}</p>
+      <p class="fs-3 px-4 mx-4">$${flavor.price}</p>
+      <p class="fs-3 px-4 mx-4">$${flavor.quantity * flavor.price}</p>
+    </div>`
+    }
+    console.log(template);
+  });
+  document.getElementById("cart").innerHTML = template
+}
+
+// take in all three datas needed and perform the requested actions
+
+function addToCart(itemType, itemName, action ){
+
+}
